@@ -59,3 +59,5 @@ Eqn. 2: Gaussian Probability Distribution
 
 Naïve Bayes method performs under the assumption that features are independent from each other. A probability is assigned to every feature. As it was mentioned before, we used Gaussian Probability Distribution to assign these values. Then, we integrated this formula with Bayes’ Theorem.
 
+Bayes’ Theorem:
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/f2de8de5-b168-42f6-b282-5e0d6b12c15a)
