@@ -1,1 +1,17 @@
 # CsGoRoundWinnerClassifier
+
+Description of the Dataset
+The name of the dataset that we are using for the project is CS:GO Round Winner Classification which is about a video game called Counter Strike:Global Offensive. CS:GO is a first person shooter game. There are two teams which are called Counter-Terrorists (CT) and Terrorists (T). The objective of the game is to win rounds either by eliminating the opposing team or capturing/protecting a specific area in the map.
+
+The dataset is found on Kaggle, yet it was originally published by Skybox which was part of their Al challenge about the game. The Skybox included about 700 demos from several professional level tournaments that were played in 2019 and 2020. The restarts and warmups were not included in the demos. The recordings have been snapped every 20 second as the round continues. The number of snaps, which will be our instances, is 122411. The Terrorist team wins 62430 rounds and the Counter-Terrorist team wins 59981 of them [1]. So, the distribution of the instances is balanced and there are no missing values in the dataset. Therefore, we are expecting a good result while making the classification. The attribute number of the dataset is 97. These attributes consist of the time left in the current round, the current score of the Counter-Terrorist team, the map the round is being played on, if the bomb has been planted or not, the total bankroll of all Terrorist players, number of helmets on the Counter-Terrorist team etc.
+
+Description of the Question
+Aforementioned dataset will be used for answering the question “Which team is expected to win the round?”. This question will be answered by using different methods that we will learn throughout the semester.
+
+Detailed Description of the Methods Used
+As it was mentioned in the project proposal we are planning to use 3 different Machine Learning methods that will calculate and predict the possible winner of the CS:GO Round separately. The 3 methods will be Naive Bayes, Logistic Regression and Decision Tree. Firstly, Feature selection should be implemented to the dataset to exclude the features that are not needed or/and spoil some equations when they have all 0 values. In order to use the methods, the dataset should be separated into 2 groups which are Train and Test sets. We have decided to separate them as 80% of them used for training and 20% of them used for testing. In the process, the only libraries used for the project will be “numpy, pandas, etc.”. We will derive some mathematical formulas in order to calculate some probabilities. The project will be constructed without the usage of any extensive Python machine learning libraries.
+
+Preprocessing and Simulation Setup
+First of all, we are using Google Colaboratory for writing and executing our python code which is a well-suited environment for machine learning algorithms. As we started the coding, the first thing to do was importing the simple libraries like numpy and pandas. Then we read and save the dataset inside the Colab in order to work on it. When we analyzed the data deeply, the first thing we saw was some of the features never change as they are always 0 and have no contribution to the classification of the round winner label. We could observe the corresponding feature in the following snapshot.
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/9c8ced99-9a23-4ffc-af71-e20f118e0e93)
+
