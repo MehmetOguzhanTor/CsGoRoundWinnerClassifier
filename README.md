@@ -60,4 +60,82 @@ Eqn. 2: Gaussian Probability Distribution
 Naïve Bayes method performs under the assumption that features are independent from each other. A probability is assigned to every feature. As it was mentioned before, we used Gaussian Probability Distribution to assign these values. Then, we integrated this formula with Bayes’ Theorem.
 
 Bayes’ Theorem:
+
 ![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/f2de8de5-b168-42f6-b282-5e0d6b12c15a)
+
+Eqn. 3: Bayes’ Theorem
+
+We can also write this as the following:
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/d186f751-b54c-41eb-99f2-2484646fb009)
+
+Eqn. 4: Bayes’ Theorem
+
+Since we assumed independence of variables, by multiplying probabilities of every column for every row we reach the likelihood. However, when we multiplied the probabilities, we acquired some errors. Since the Gaussian formula uses exponential, overflow occurred in some rows. In order to overcome this issue, we have taken logarithm of these values and instead of multiplication we used summation in every row. By summing up these values, we acquired the likelihood of each and every row. We used such a process because we know that by taking logarithm, we are changing the final values proportionally. Also, we didn’t use ‘evidence’ probability because we would have the same denominator for every calculation and it would have cancelled itself.
+
+                        𝑝𝑜𝑠𝑡𝑒𝑟𝑖𝑜𝑟 𝖺 𝑙𝑖𝑘𝑒𝑙𝑖ℎ𝑜𝑜𝑑 × 𝑝𝑟𝑖𝑜𝑟
+                        Eqn. 5: Ratio of Probabilities
+
+We defined a function called ‘naïve_prob_generate’ to calculate the probabilities of the dataset. It takes the dataset and related mean and standard deviation values as input and returns the probabilities of every row. Then, by using these values, we classified the test dataset. After training the algorithm we created the confusion matrix which can be seen under the result section.
+
+Logistic Regression
+
+As another method to classify the examined dataset, logistic regression is preferred. To obtain classification results, the normalized train dataset is utilized. The features in the train data are multiplied with weights and a bias is added. In each step weights are updated by stochastic gradient descent algorithm. At the end of a specified number of iterations, optimum weights are reached. The formula for the weighted sum is given as below.
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/654a08b6-3561-4867-bb02-ed9890cda0f8)
+
+Eqn. 6: Weighted Sum
+
+Obtaining the z, the weighted sum, sigmoid function is used as we deal with logistic regression. With the help of sigmoid function, the data becomes cumulated as it is demonstrated in the following figure. The predictions that are spreaded in the range [0, 1] become 0 or 1 approximately. So, the shown cumulation of data points after sigmoid represent more certain classification results compared to linear regression.
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/838a2b67-1817-428a-b3d4-9a5e59b2eb4a)
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/6153b936-87f9-401a-b7fa-a30549bc071c)
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/b62d7388-8b59-40d4-a19e-466061304413)
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/86c2870f-6d24-4322-8be5-73fdcfb62a6b)
+
+Figure 4: Sigmoid curve [4]
+
+In the calculation of updated weights, the main objective is to minimize the loss function. So, the derivative of the loss is inspected to reach the optimum result. First we tried to reach a result without taking the logarithm of the loss function and calculations resulted with overflow. Then logarithm of the loss is utilized to handle the issue. However, loss function is not enough to derive the best result. Various learning rates and iteration numbers are examined, then the values that lead the best result are chosen in the implementation of the method. Applying these steps, weights are updated with respect to the stochastic gradient descent algorithm as stated in the following equations.
+
+𝐿 (𝑤, 𝑏) =	− [(1 − 𝑦) 𝑙𝑜𝑔(1 − σ(𝑤 · 𝑥 + 𝑏)) + 𝑦 𝑙𝑜𝑔σ(𝑤 · 𝑥 + 𝑏)]
+Eqn. 9: Loss Function
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/9a9ea443-4b9e-44d6-a773-862662f5f3be)
+
+So, we implemented the logistic regression method by following the mentioned steps after initializing the weights. Training the data, accuracy is calculated on the test set by comparing predictions and original labels.
+
+As overflow should be avoided in calculations, normalization is utilized. It is expected to obtain better results compared to Naive Bayes, as it is more complicated and takes more time to compute. Also, in this part we have used a validation set to decide on which learning rate is the best and what epoch number results with the highest accuracy. After training we created the confusion matrix for the test set. It can be seen in the result section.
+
+Decision Tree
+ 
+Decision tree used for the third classification method for our project which is a non_parametric supervised learning method. The purpose for using this model is to generate a model which is used for the prediction of the round winner label by creating a tree structure and learn the decision rules that are related to our dataset and our features. The values of the attributes are used to split the data into nodes. There is a two child node generated for each iteration over the features and the possible split points of those features from the iterated feature. The effectiveness of the split point and children is determined by using the cross entropy formula which is given in the following figure.
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/13d6f291-a701-4c37-a461-272fc3e8ab35)
+
+Figure 5: Cross Entropy Formula[6]
+
+In the formula, In the mth branch of the tree the probability of the class k is used. The result of the entropy formula would take a small value when the given child is pure. Later, the average cross entropy is calculated by multiplying cross entropy values of each child with the probability of one sample being in the child. So, when the cross entropy average is the smallest, it will be the best split result. Finding the best splits continues until the tree is over and is pure. The tree structure would be like in the following figure.
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/67b7fc40-cb7b-43c2-af01-2c7dea3ca7c4)
+
+Figure 6: The decision tree structure[7]
+In the decision tree model, creating the tree is the training structure. So, we find the tree by using the train set of our data. Once the tree structure is formed, the machine learning algorithm is ready for the testing procedure. The most significant part of the decision tree algorithm, when the stucture is pure too much, the algorithm will overfit which means when testing the algorithm, there will be too little accuracy which we do not want.
+
+Simulation Results
+After training with Naive Bayes Method, we created the confusion matrix. From this matrix we acquired the precision, accuracy, and recall values. The accuracy of Naive Bayes Method varied between 50-70%. This variation is caused by the dataset shuffling. Since we do not have a specific shuffled training set, it changes for every code execution. Depending on the train and test data separation, we get an accuracy value in the 50-70% interval. The precision value is very close to the accuracy value, it varies accordingly. After many tries, we have seen that the accuracy value does not get lower than 50%. The independence assumption leads to reduction in accuracy also. We have many features. There is a high probability that at least few of these are dependent on each other. However, our algorithm is very economical in terms of time and resource usage. Training the algorithm only
+ 
+takes 0.11 seconds and the testing takes 0.15 seconds. Both training and testing does not even add up to 1 second. Therefore, we are satisfied with the result of Naïve Bayes method.
+
+In the Logistic Regression Method, we have used a validation set to determine the best parameters which give the best accuracy. For different learning rates and epoch numbers we run tests with validation set. Then, we have seen that the best result was acquired when the learning rate is 0.01 and epoch number is 2. When we increased the epoch number we have seen that the accuracy converges around 65%. The best accuracy was 75%. However, same as the Naive Bayes Method, our result differs depending on the dataset division. Following confusion matrices are an instance of a random shuffling.
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/8aaea239-facd-4fdc-bdac-a77027c46152)
+
+From the previous graphs it can be seen that the learning rate has a very minimal effect on the accuracy. The epoch number is more influential on the result.
+In terms of run time, the Logistic Regression took 5.46 seconds to train and 0.19 seconds to test. In contrast training took longer than Naive Bayes because we looked for the best parameters by running for 100 iterations and 5 different learning rates. At first we used two nested for loops to do such training and it took even longer. However, by using matrix operations we got rid of the second for loop and trained the algorithm for only the iteration number.
+
+![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/91b18a77-808c-485e-8170-d8dd20536c94)
+
+In the Decision Tree method, we have used the train set in order to train the algorithm. In this case, there is a tree structure that is formed during the process with the help of calculations that are mentioned in the above sections. In the decision tree algorithm, we used the maximum depth of the main function which is the depth of the tree structure to be 7 after some trials. When the test is run with the test data, we get the accuracy between 48 and 52. The accuracy seems low with comparison with the first two methods. The reason for this would be the algorithm being overfit or underfit with the tree structure. In the Decision tree algorithm the run time is 29.6 (s) which is higher than the first methods. It is because creating a tree takes more time. Yet, the time is not as high as we expected.
