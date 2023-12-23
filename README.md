@@ -139,3 +139,23 @@ In terms of run time, the Logistic Regression took 5.46 seconds to train and 0.1
 ![image](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/91b18a77-808c-485e-8170-d8dd20536c94)
 
 In the Decision Tree method, we have used the train set in order to train the algorithm. In this case, there is a tree structure that is formed during the process with the help of calculations that are mentioned in the above sections. In the decision tree algorithm, we used the maximum depth of the main function which is the depth of the tree structure to be 7 after some trials. When the test is run with the test data, we get the accuracy between 48 and 52. The accuracy seems low with comparison with the first two methods. The reason for this would be the algorithm being overfit or underfit with the tree structure. In the Decision tree algorithm the run time is 29.6 (s) which is higher than the first methods. It is because creating a tree takes more time. Yet, the time is not as high as we expected.
+
+Discussion on the Performance
+One of the challenges about the project was arranging the dataset. It took more time and effort than we anticipated. In order to work with the dataset, we need to always shuffle and consider the all 0-columns at all times which is learned from the hard way because we faced some errors caused from this situation and tried to find out why.
+When we classified the dataset by using Naive Bayes Method, the accuracy resulted in a maximum value of 70.62% which can be considered as a satisfying result. In addition to accuracy, precision and recall was calculated. The precision was around 72% and the recall was around 55%. In terms of time performance, Naive Bayes was very successful. The training and the testing took less than 1 second (~0.3 seconds).
+In the Logistic Regression Method the accuracy was higher than Naive Bayes. Generally Logistic Regression had 5% higher accuracy than Naive Bayes. The precision was almost 10% higher than naive Bayes’. The recall values are very similar. In terms of time performance, it took 5 seconds to
+ 
+train the algorithm and 0.2 seconds to test. It took more than Naive Bayes because we used 100 iterations for the validation set. From the validation set we determined the best learning rate and epoch number. With these values it took less than 1 second to test our algorithm.
+Logistic Regression had better result in terms of accuracy because of the independence assumption of the Naive Bayes Method.
+
+In the last model of the project, the most challenging thing was not overfitting the decision tree structure. It is because, when there is overfitting in the algorithm, the accuracy of our testing drops dramatically. After the trial of some parameter of maximum depth of decision tree structure of number of samples, we have reached the optimum accuracy of 48-52. However, still it may be overfitting considering that the accuracy is lower than the other two methods.
+
+References
+[1]	Lillelund, Christian. “CS:GO Round Winner Classification.” Kaggle, 19 Aug. 2020, www.kaggle.com/christianlillelund/csgo-round-winner-classification.
+[2]	TOR, Mehmet O, TAŞDEMİR Berkin., “EEE 485 Statistical Learning and Data Science Project Proposal CS:GO Round Winner Classification”. 2021.
+[3]	Chatterjee, Soumo. “Use Naive Bayes Algorithm for Categorical and Numerical Data Classification.	”Medium,	26	Nov.	2020, medium.com/analytics-vidhya/use-naive-bayes-algorithm-for-categorical-and-numerical-data-cl assification-935d90ab273f.
+[4]	L. Su, “Logistic Regression, Accuracy, Cross-Validation,” Medium, 14-May-2019. [Online]. Available:
+https://medium.com/@lily_su/logistic-regression-accuracy-cross-validation-58d9eb58d6e6. [Accessed: 06-May-2021].
+[5]	D. Jurafsky and J. H. Martin, “Speech and Language Processing,” 30-Dec-2020. [Online]. Available: https://web.stanford.edu/~jurafsky/slp3/5.pdf.
+[6]	“Loss Functions¶,” Loss Functions - ML Glossary documentation. [Online]. Available: https://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html. [Accessed: 07-May-2021].
+[7]	N. Tyagi, “Decision Tree in Machine Learning,” Analytics Steps. [Online]. Available: https://www.analyticssteps.com/blogs/decision-tree-machine-learning. [Accessed: 07-May-2021].
