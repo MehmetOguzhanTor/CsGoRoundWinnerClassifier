@@ -36,3 +36,26 @@ Eqn. 1: Normalization Formula
 
 Figure 3: Described Dataset
 
+In the end of the preprocessing part, we derived all of the matrices, vectors and parameters for the following part. So, we have decided for train and test data and determine them with their corresponding label vector which has the round winner information. Moreover, we have normalized both train and test data by creating and using a normalization function that we created. After normalizing them separately, we observed that sometimes in the created normalization matrix, there are some ‘nan’ values which means normalization could not be done right. In the light of this observation, we realized that when we shuffle and separate the dataset into two parts, sometimes these train and/or test datasets have all 0 columns. The result of the situation is that some of the weapons are taken rarely in the snapshot. Therefore, when shuffled and separated, this situation could occur which harms our algorithm. So, we added an additional delete function to search for these ‘nan’ values and eliminate their attribute at that moment in order to continue with the process successfully.
+
+When finding the mean and standard deviation of the set that we are working on, we used functions from the numpy library like np.mean and np.std which were really useful. When some of the resulting vectors were not correctly shaped after the adjustments, we reshaped them in order not to face any calculation error while executing the mathematical formulas. All of these preprocessing parts will be essential for the following Machine Learning algorithms. For this phase, they will be used for round winner classification with Naive Bayes classification.
+
+Naive Bayes Classification
+The firstly implemented classification method for the project is the Naive Bayes Method. In order to have a better classification result both the train data and test data were normalized beforehand. These normalized data were used in the Naive Bayes Method. For this method Gaussian probability distribution was utilized.
+
+Gaussian Probability Distribution:
+In the end of the preprocessing part, we derived all of the matrices, vectors and parameters for the following part. So, we have decided for train and test data and determine them with their corresponding label vector which has the round winner information. Moreover, we have normalized both train and test data by creating and using a normalization function that we created. After normalizing them separately, we observed that sometimes in the created normalization matrix, there are some ‘nan’ values which means normalization could not be done right. In the light of this observation, we realized that when we shuffle and separate the dataset into two parts, sometimes these train and/or test datasets have all 0 columns. The result of the situation is that some of the weapons are taken rarely in the snapshot. Therefore, when shuffled and separated, this situation could occur which harms our algorithm. So, we added an additional delete function to search for these ‘nan’ values and eliminate their attribute at that moment in order to continue with the process successfully.
+
+When finding the mean and standard deviation of the set that we are working on, we used functions from the numpy library like np.mean and np.std which were really useful. When some of the resulting vectors were not correctly shaped after the adjustments, we reshaped them in order not to face any calculation error while executing the mathematical formulas. All of these preprocessing parts will be essential for the following Machine Learning algorithms. For this phase, they will be used for round winner classification with Naive Bayes classification.
+
+Naive Bayes Classification
+The firstly implemented classification method for the project is the Naive Bayes Method. In order to have a better classification result both the train data and test data were normalized beforehand. These normalized data were used in the Naive Bayes Method. For this method Gaussian probability distribution was utilized.
+
+Gaussian Probability Distribution:
+
+![Screenshot 2023-12-23 153238](https://github.com/MehmetOguzhanTor/CsGoRoundWinnerClassifier/assets/116079107/8e16dc71-95c2-4bb8-8af8-fd3de5896c79)
+
+Eqn. 2: Gaussian Probability Distribution
+
+Naïve Bayes method performs under the assumption that features are independent from each other. A probability is assigned to every feature. As it was mentioned before, we used Gaussian Probability Distribution to assign these values. Then, we integrated this formula with Bayes’ Theorem.
+
