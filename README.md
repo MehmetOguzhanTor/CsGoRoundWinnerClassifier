@@ -151,11 +151,19 @@ Logistic Regression had better result in terms of accuracy because of the indepe
 In the last model of the project, the most challenging thing was not overfitting the decision tree structure. It is because, when there is overfitting in the algorithm, the accuracy of our testing drops dramatically. After the trial of some parameter of maximum depth of decision tree structure of number of samples, we have reached the optimum accuracy of 48-52. However, still it may be overfitting considering that the accuracy is lower than the other two methods.
 
 References
+
 [1]	Lillelund, Christian. “CS:GO Round Winner Classification.” Kaggle, 19 Aug. 2020, www.kaggle.com/christianlillelund/csgo-round-winner-classification.
+
 [2]	TOR, Mehmet O, TAŞDEMİR Berkin., “EEE 485 Statistical Learning and Data Science Project Proposal CS:GO Round Winner Classification”. 2021.
+
 [3]	Chatterjee, Soumo. “Use Naive Bayes Algorithm for Categorical and Numerical Data Classification.	”Medium,	26	Nov.	2020, medium.com/analytics-vidhya/use-naive-bayes-algorithm-for-categorical-and-numerical-data-cl assification-935d90ab273f.
+
 [4]	L. Su, “Logistic Regression, Accuracy, Cross-Validation,” Medium, 14-May-2019. [Online]. Available:
 https://medium.com/@lily_su/logistic-regression-accuracy-cross-validation-58d9eb58d6e6. [Accessed: 06-May-2021].
+
 [5]	D. Jurafsky and J. H. Martin, “Speech and Language Processing,” 30-Dec-2020. [Online]. Available: https://web.stanford.edu/~jurafsky/slp3/5.pdf.
+
 [6]	“Loss Functions¶,” Loss Functions - ML Glossary documentation. [Online]. Available: https://ml-cheatsheet.readthedocs.io/en/latest/loss_functions.html. [Accessed: 07-May-2021].
+
 [7]	N. Tyagi, “Decision Tree in Machine Learning,” Analytics Steps. [Online]. Available: https://www.analyticssteps.com/blogs/decision-tree-machine-learning. [Accessed: 07-May-2021].
+
