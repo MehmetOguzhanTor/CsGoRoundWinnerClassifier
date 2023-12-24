@@ -1,4 +1,4 @@
-# CsGoRoundWinnerClassifier
+# CS:GO Round Winner Classifier
 
 Description of the Dataset
 The name of the dataset that we are using for the project is CS:GO Round Winner Classification which is about a video game called Counter Strike:Global Offensive. CS:GO is a first person shooter game. There are two teams which are called Counter-Terrorists (CT) and Terrorists (T). The objective of the game is to win rounds either by eliminating the opposing team or capturing/protecting a specific area in the map.
